@@ -28,7 +28,7 @@ rows = table.findAll('tr')
 for row in rows:
 	url = 'http://www.redbridge.gov.uk' + row.a['href']
 	if 'CSV' in url:
-		title = row.find('td',{'class':'left titlecol Title'})
+		title = row.find('td',{'class':'left titlecol Title'}).content[0]
 		# create the right strings for the new filename
 		csvYr = title.split(' ')[1]
 		csvMth = title.split(' ')[0][:3]
