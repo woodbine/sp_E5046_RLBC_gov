@@ -26,7 +26,7 @@ table = soup.find('tbody')
 rows = table.findAll('tr')
 
 for row in rows:
-	url = 'http://www.redbridge.gov.uk' + row.a['href']
+	url = 'http://data.redbridge.gov.uk' + row.a['href']
 	if 'CSV' in url:
 		title = row.find('td',{'class':'left titlecol Title'}).text
 		# create the right strings for the new filename
