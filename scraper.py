@@ -110,6 +110,7 @@ for pages in itertools.count(1):
         href = pageLink['href']
         if 'CSV' in href:
             fileurl = 'http://data.redbridge.gov.uk' + href
+            fileurl = fileurl.split('?')[0]
             title = ' '.join(href.split('/CSV')[0].split('/')[-1].split('-'))
             csvYr = title.split(' ')[1]
             csvMth = title.split(' ')[0][:3]
