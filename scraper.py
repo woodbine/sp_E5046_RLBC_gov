@@ -110,13 +110,14 @@ for pages in itertools.count(1):
         href = pageLink['href']
         if 'CSV' in href:
             fileurl = 'http://data.redbridge.gov.uk' + href
-            fileurl = fileurl.split('?')[0]
             title = ' '.join(href.split('/CSV')[0].split('/')[-1].split('-'))
             csvYr = title.split(' ')[1]
             csvMth = title.split(' ')[0][:3]
             if 'over' in csvYr:
                 csvYr = href.split('/CSV')[0].split('/')[-1].split('-')[-1]
                 csvMth = href.split('/CSV')[0].split('/')[-1].split('-')[-2][:3]
+            if '20' not in csvYr:
+                csvYr = '20'+csvYr
             csvMth = convert_mth_strings(csvMth.upper())
             todays_date = str(datetime.now())
             data.append([csvYr, csvMth, fileurl])
@@ -144,4 +145,3 @@ if errors > 0:
 
 
 #### EOF
-
